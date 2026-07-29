@@ -1,98 +1,131 @@
 #include <stdio.h>
 
 int main(){
-    int populacao1, populacao2; 
-    int numero_de_pontos_turisticos1, numero_de_pontos_turisticos2;
-    float area_em_sqkm1, area_em_sqkm2;
-    float PIB1, PIB2;
-    char Estado1, Estado2;                           // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
-    char Codigo_Carta1[4], Codigo_Carta2[4];        // Recebe a letra + 2 dígitos + '\0' (ex: "A01")
-    char Nome_da_Cidade1[50], Nome_da_Cidade2[50]; // Guarda o nome da cidade.
-  
-    //CARTA 1
+    //===========================================
+    //1. DECLARÇÃO DE VARIÁVEIS
+    //===========================================
+    
+    //----- CARTA 1 -----
+    int populacao1, pontos_turisticos1;
+    float area_em_sqkm1, PIB1, Densidade_Populacional1, PIB_per_Capita1;
+    char Estado1;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
+    char Codigo_Carta1[4], Nome_da_Cidade1[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
+
+    //----- CARTA 2 -----
+
+    int populacao2, pontos_turisticos2;
+    float area_em_sqkm2, PIB2, Densidade_Populacional2, PIB_per_Capita2;
+    char Estado2;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
+    char Codigo_Carta2[4], Nome_da_Cidade2[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
+
+    //===========================================
+    //2. ENTRADA DE DADOS E CALCULOS - CARTA 1
+    //===========================================
     printf("Carta 1\n");
     
-    // 1. Leitura do Estado
+    // Leitura do Estado:
     printf("Digite a letra do Estado (A a H):\n");
     scanf(" %c", &Estado1);
     
-    // 2. Leitura do Código da Carta
-    printf("Digite o Codigo da Carta (ex: A01, B03):\n");
+    // Leitura do Código da Carta:
+    printf("Digite o Codigo da Carta (ex: A01, B02):\n");
     scanf("%s", Codigo_Carta1);
 
-    // 3. Leitura do Nome da Cidade
+    // Leitura do Nome da Cidade:
     printf("Digite o Nome da Cidade:\n");
     scanf("%s", Nome_da_Cidade1);
 
-    // 4. Leitura da População
+    // Leitura da População:
     printf("Digite o numero de habitantes:\n");
     scanf("%d",&populacao1);
 
-    // 5. Leitura da area em km²
+    // Leitura da area em km²:
     printf("Digite a area da cidade em km quadrados:\n");
     scanf("%f", &area_em_sqkm1);
 
-    // 6. Leitura do PIB
+    // Leitura do PIB:
     printf("Digite o PIB da Cidade:\n");
     scanf("%f", &PIB1);
 
-    // 7. Leitura do Numero de Pontos Turisticos
+    // Leitura do Numero de Pontos Turisticos:
     printf("Digite o numero de pontos turisticos da cidade:\n");
-    scanf("%d", &numero_de_pontos_turisticos1);
-    
-    //CARTA 2
+    scanf("%d", &pontos_turisticos1);
+
+    // Calculo da Media:
+    Densidade_Populacional1 = (float) populacao1 / area_em_sqkm1;
+    PIB_per_Capita1 = PIB1 * 1000000000.0 / (float) populacao1;
+
+    //===========================================
+    //3. ENTRADA DE DADOS E CALCULOS - CARTA 1
+    //===========================================
     printf("Carta 2\n");
     
-    // 1. Leitura do Estado
+    // Leitura do Estado:
     printf("Digite a letra do Estado (A a H):\n");
     scanf(" %c", &Estado2);
     
-    // 2. Leitura do Código da Carta
-    printf("Digite o Codigo da Carta (ex: A01, B03):\n");
+    // Leitura do Código da Carta:
+    printf("Digite o Codigo da Carta (ex: A01, B02):\n");
     scanf("%s", Codigo_Carta2);
 
-    // 3. Leitura do Nome da Cidade
+    // Leitura do Nome da Cidade:
     printf("Digite o Nome da Cidade:\n");
     scanf("%s", Nome_da_Cidade2);
 
-    // 4. Leitura da População
+    // Leitura da População:
     printf("Digite o numero de habitantes:\n");
     scanf("%d",&populacao2);
 
-    // 5. Leitura da area em km²
+    // Leitura da area em km²:
     printf("Digite a area da cidade em km quadrados:\n");
     scanf("%f", &area_em_sqkm2);
 
-    // 6. Leitura do PIB
+    // Leitura do PIB:
     printf("Digite o PIB da Cidade:\n");
     scanf("%f", &PIB2);
 
-    // 7. Leitura do Numero de Pontos Turisticos
+    // Leitura do Numero de Pontos Turisticos:
     printf("Digite o numero de pontos turisticos da cidade:\n");
-    scanf("%d", &numero_de_pontos_turisticos2);
+    scanf("%d", &pontos_turisticos2);
+    
+    // Calculo da Media:
+    Densidade_Populacional2 = (float) populacao2 / area_em_sqkm2;
+    PIB_per_Capita2 = PIB2 * 1000000000.0 / (float) populacao2;
+        
+    //===========================================
+    //4. RETORNO DE DADOS AO USUARIO
+    //===========================================
+    printf("--------------------------------------\n");
+    printf("-------------Super Trunfo-------------\n");
+    printf("--------------------------------------\n");
 
-    // Retorno ao usuario
     printf( "Carta 1\n" 
             "Estado: %c\n" 
             "Codigo: %s\n" 
-            "Nome da Cidade: %s\n", 
-            Estado1, Codigo_Carta1, Nome_da_Cidade1);
-    printf( "Populacao: %d\n" 
+            "Nome da Cidade: %s\n" 
+            "Populacao: %d\n" 
             "Area: %.2f km quadrados\n" 
             "PIB: %.2f bilhoes de reais\n"
-            "Numero de Pontos Turisticos: %d\n",
-            populacao1, area_em_sqkm1, PIB1,numero_de_pontos_turisticos1);
-            
+            "Numero de Pontos Turisticos: %d\n"
+            "Densidade Populacional: %.2f hab/km quadrado\n" //Media1
+            "PIB per Capita: %.2f reais\n", //Media1
+            Estado1, Codigo_Carta1, Nome_da_Cidade1, populacao1, area_em_sqkm1,
+            PIB1, pontos_turisticos1, Densidade_Populacional1, PIB_per_Capita1);
+
+    printf("---------------------------------------------------------\n");
+
     printf( "Carta 2\n" 
             "Estado: %c\n" 
             "Codigo: %s\n" 
-            "Nome da Cidade: %s\n", 
-            Estado2, Codigo_Carta2, Nome_da_Cidade2);
-    printf( "Populacao: %d\n" 
+            "Nome da Cidade: %s\n" 
+            "Populacao: %d\n" 
             "Area: %.2f km quadrados\n" 
             "PIB: %.2f bilhoes de reais\n"
-            "Numero de Pontos Turisticos: %d\n",
-            populacao2, area_em_sqkm2, PIB2,numero_de_pontos_turisticos2);
+            "Numero de Pontos Turisticos: %d\n"
+            "Densidade Populacional: %.2f hab/km quadrado\n"//Media2
+            "PIB per Capita: %.2f reais\n", //Media2
+            Estado2, Codigo_Carta2, Nome_da_Cidade2, populacao2, area_em_sqkm2,
+            PIB2, pontos_turisticos2, Densidade_Populacional2, PIB_per_Capita2);
     
     return 0;
 
