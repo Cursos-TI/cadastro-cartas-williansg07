@@ -4,129 +4,171 @@ int main(){
     //===========================================
     //1. DECLARÇÃO DE VARIÁVEIS
     //===========================================
-    
+
     //----- CARTA 1 -----
-    int populacao1, pontos_turisticos1;
-    float area_em_sqkm1, PIB1, Densidade_Populacional1, PIB_per_Capita1;
-    char Estado1;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
-    char Codigo_Carta1[4], Nome_da_Cidade1[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
+    unsigned int populacao1; 
+    int pontosTuristicos1; 
+    float areaEmSqkm1, pib1, densidadePopulacional1, pibPerCapita1, superPoder1;
+    char estado1;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
+    char codigoCarta1[4], nomeDaCidade1[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
 
     //----- CARTA 2 -----
+    unsigned int populacao2; 
+    int pontosTuristicos2, resultado2;
+    float areaEmSqkm2, pib2, densidadePopulacional2, pibPerCapita2, superPoder2;
+    char estado2;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
+    char codigoCarta2[4], nomeDaCidade2[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
 
-    int populacao2, pontos_turisticos2;
-    float area_em_sqkm2, PIB2, Densidade_Populacional2, PIB_per_Capita2;
-    char Estado2;                                    // Guarda a primeira letra exemplo: 'A', 'B', 'C', etc.
-    char Codigo_Carta2[4], Nome_da_Cidade2[50];     // Recebe a letra + 2 dígitos + '\0' (ex: "A01") e Guarda o nome da cidade.
+    //----- COMBATE -----
+    int resultadoPop, resultadoArea, resultadoPib, resultadoTuristico, resultadoDensidade, resultadoCapita, resultadoSuper;
 
     //===========================================
     //2. ENTRADA DE DADOS E CALCULOS - CARTA 1
     //===========================================
     printf("Carta 1\n");
-    
+
     // Leitura do Estado:
     printf("Digite a letra do Estado (A a H):\n");
-    scanf(" %c", &Estado1);
-    
+    scanf(" %c", &estado1);
+
     // Leitura do Código da Carta:
     printf("Digite o Codigo da Carta (ex: A01, B02):\n");
-    scanf("%s", Codigo_Carta1);
+    scanf("%s", codigoCarta1);
 
     // Leitura do Nome da Cidade:
     printf("Digite o Nome da Cidade:\n");
-    scanf("%s", Nome_da_Cidade1);
+    scanf("%s", nomeDaCidade1);
 
     // Leitura da População:
     printf("Digite o numero de habitantes:\n");
-    scanf("%d",&populacao1);
+    scanf("%u",&populacao1);
 
     // Leitura da area em km²:
     printf("Digite a area da cidade em km quadrados:\n");
-    scanf("%f", &area_em_sqkm1);
+    scanf("%f", &areaEmSqkm1);
 
     // Leitura do PIB:
     printf("Digite o PIB da Cidade:\n");
-    scanf("%f", &PIB1);
+    scanf("%f", &pib1);
 
     // Leitura do Numero de Pontos Turisticos:
     printf("Digite o numero de pontos turisticos da cidade:\n");
-    scanf("%d", &pontos_turisticos1);
+    scanf("%d", &pontosTuristicos1);
 
     // Calculo da Media:
-    Densidade_Populacional1 = (float) populacao1 / area_em_sqkm1;
-    PIB_per_Capita1 = PIB1 * 1000000000.0 / (float) populacao1;
+    densidadePopulacional1 = (float) populacao1 / areaEmSqkm1;
+    pibPerCapita1 = pib1 * 1000000000.0 / (float) populacao1;
+
+    //Calculo do Super Poder:
+    superPoder1 = (float) populacao1 + areaEmSqkm1 + (pib1 * 1000000000.0) + pontosTuristicos1 + pibPerCapita1 + (1.0 / densidadePopulacional1);
 
     //===========================================
     //3. ENTRADA DE DADOS E CALCULOS - CARTA 1
     //===========================================
     printf("Carta 2\n");
-    
+
     // Leitura do Estado:
     printf("Digite a letra do Estado (A a H):\n");
-    scanf(" %c", &Estado2);
-    
+    scanf(" %c", &estado2);
+
     // Leitura do Código da Carta:
     printf("Digite o Codigo da Carta (ex: A01, B02):\n");
-    scanf("%s", Codigo_Carta2);
+    scanf("%s", codigoCarta2);
 
     // Leitura do Nome da Cidade:
     printf("Digite o Nome da Cidade:\n");
-    scanf("%s", Nome_da_Cidade2);
+    scanf("%s", nomeDaCidade2);
 
     // Leitura da População:
     printf("Digite o numero de habitantes:\n");
-    scanf("%d",&populacao2);
+    scanf("%u",&populacao2);
 
     // Leitura da area em km²:
     printf("Digite a area da cidade em km quadrados:\n");
-    scanf("%f", &area_em_sqkm2);
+    scanf("%f", &areaEmSqkm2);
 
     // Leitura do PIB:
     printf("Digite o PIB da Cidade:\n");
-    scanf("%f", &PIB2);
+    scanf("%f", &pib2);
 
     // Leitura do Numero de Pontos Turisticos:
     printf("Digite o numero de pontos turisticos da cidade:\n");
-    scanf("%d", &pontos_turisticos2);
-    
+    scanf("%d", &pontosTuristicos2);
+
     // Calculo da Media:
-    Densidade_Populacional2 = (float) populacao2 / area_em_sqkm2;
-    PIB_per_Capita2 = PIB2 * 1000000000.0 / (float) populacao2;
-        
+    densidadePopulacional2 = (float) populacao2 / areaEmSqkm2;
+    pibPerCapita2 = pib2 * 1000000000.0 / (float) populacao2;
+
+    //Calculo do Super Poder:
+    superPoder2 = (float) populacao2 + areaEmSqkm2 + (pib2 * 1000000000.0) + pontosTuristicos2 + pibPerCapita2 + (1.0 / densidadePopulacional2);
+
     //===========================================
     //4. RETORNO DE DADOS AO USUARIO
     //===========================================
-    printf("--------------------------------------\n");
-    printf("-------------Super Trunfo-------------\n");
-    printf("--------------------------------------\n");
+    printf("--------------------------------------\n"
+           "-------------Super Trunfo-------------\n"
+           "--------------------------------------\n");
 
-    printf( "Carta 1\n" 
+    printf( "Carta 1\n"
+            "Super Poder 1: %.2f\n"
             "Estado: %c\n" 
             "Codigo: %s\n" 
             "Nome da Cidade: %s\n" 
-            "Populacao: %d\n" 
+            "Populacao: %u\n" 
             "Area: %.2f km quadrados\n" 
             "PIB: %.2f bilhoes de reais\n"
             "Numero de Pontos Turisticos: %d\n"
             "Densidade Populacional: %.2f hab/km quadrado\n" //Media1
             "PIB per Capita: %.2f reais\n", //Media1
-            Estado1, Codigo_Carta1, Nome_da_Cidade1, populacao1, area_em_sqkm1,
-            PIB1, pontos_turisticos1, Densidade_Populacional1, PIB_per_Capita1);
+            superPoder1, estado1, codigoCarta1, nomeDaCidade1, populacao1, areaEmSqkm1,
+            pib1, pontosTuristicos1, densidadePopulacional1, pibPerCapita1);
 
     printf("---------------------------------------------------------\n");
 
-    printf( "Carta 2\n" 
+    printf( "Carta 2\n"
+            "Super Poder 2: %.2f\n" 
             "Estado: %c\n" 
             "Codigo: %s\n" 
             "Nome da Cidade: %s\n" 
-            "Populacao: %d\n" 
+            "Populacao: %u\n" 
             "Area: %.2f km quadrados\n" 
             "PIB: %.2f bilhoes de reais\n"
             "Numero de Pontos Turisticos: %d\n"
             "Densidade Populacional: %.2f hab/km quadrado\n"//Media2
             "PIB per Capita: %.2f reais\n", //Media2
-            Estado2, Codigo_Carta2, Nome_da_Cidade2, populacao2, area_em_sqkm2,
-            PIB2, pontos_turisticos2, Densidade_Populacional2, PIB_per_Capita2);
-    
+            superPoder2, estado2, codigoCarta2, nomeDaCidade2, populacao2, areaEmSqkm2,
+            pib2, pontosTuristicos2, densidadePopulacional2, pibPerCapita2);
+
+    //===========================================
+    //5. CALCULO DO COMBATE
+    //===========================================    
+    resultadoPop = populacao1 > populacao2;
+    resultadoArea = areaEmSqkm1 > areaEmSqkm2;
+    resultadoPib = pib1 > pib2;
+    resultadoTuristico = pontosTuristicos1 > pontosTuristicos2;
+    resultadoDensidade = (1.0 / densidadePopulacional1) > (1.0 / densidadePopulacional2);
+    resultadoCapita = pibPerCapita1 > pibPerCapita2;
+    resultadoSuper = superPoder1 > superPoder2;
+
+    //===========================================
+    //6. COMBATE
+    //===========================================
+    printf("--------------------------------------\n"
+           "---------------COMABTE----------------\n"
+           "--------------------------------------\n");
+
+    printf("Populacao: Carta 1 venceu (%d)\n"
+           "Area: Carta 1 venceu (%d)\n"
+           "PIB: Carta 1 venceu (%d)\n"
+           "Pontos Turisticos: Carta 1 venceu (%d)\n"
+           "Densidade Populacional: Carta 2 venceu (%d)\n"
+           "PIB per Capita: Carta 1 venceu (%d)\n"
+           "Super Poder: Carta 1 venceu (%d)\n",
+           resultadoPop, resultadoArea, resultadoPib, resultadoTuristico,
+           resultadoDensidade, resultadoCapita, resultadoSuper);
+
+    printf("--------------VENCEDOR CARTA 1--------------\n");
+
     return 0;
 
 }
